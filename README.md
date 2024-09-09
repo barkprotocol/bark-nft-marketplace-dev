@@ -1,96 +1,98 @@
-<a href="https://demo-nextjs-with-supabase.vercel.app/">
-  <img alt="Next.js and Supabase Starter Kit - the fastest way to build apps with Next.js and Supabase" src="https://demo-nextjs-with-supabase.vercel.app/opengraph-image.png">
-  <h1 align="center">Next.js and Supabase Starter Kit</h1>
-</a>
+# BARK Protocol | NFT Marketplace
 
-<p align="center">
- The fastest way to build apps with Next.js and Supabase
-</p>
+Welcome to the BARK Protocol NFT Marketplace! This project is a comprehensive platform for managing and claiming exclusive BARK and Solana SPL tokens through various airdrop campaigns. Built with Next.js and optimized for performance, it leverages Solana's blockchain technology and Supabase for seamless user authentication and data management.
 
-<p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#demo"><strong>Demo</strong></a> ·
-  <a href="#deploy-to-vercel"><strong>Deploy to Vercel</strong></a> ·
-  <a href="#clone-and-run-locally"><strong>Clone and run locally</strong></a> ·
-  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a>
-  <a href="#more-supabase-examples"><strong>More Examples</strong></a>
-</p>
-<br/>
+![BARK Marketplace UI](.github/assets/screenshot.png)
 
 ## Features
 
-- Works across the entire [Next.js](https://nextjs.org) stack
-  - App Router
-  - Pages Router
-  - Middleware
-  - Client
-  - Server
-  - It just works!
-- supabase-ssr. A package to configure Supabase Auth to use cookies
-- Styling with [Tailwind CSS](https://tailwindcss.com)
-- Components with [shadcn/ui](https://ui.shadcn.com/)
-- Optional deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
-  - Environment variables automatically assigned to Vercel project
+- **Explore NFTs:** Discover and view a collection of exclusive NFTs.
+- **Mint NFTs:** Mint new NFTs if you are a premium member.
+- **Upgrade Membership:** Upgrade to premium to unlock additional features and rewards.
+- **Responsive Design:** Fully responsive and optimized for both desktop and mobile views.
+- **Theming:** Supports light and dark mode.
+- **Supabase Integration:** Auth configured to use cookies with `supabase-ssr`.
+- **Styling with Tailwind CSS:** Utility-first CSS framework for styling.
+- **Components with shadcn/ui:** Prebuilt UI components for efficient development.
 
-## Demo
+## Frameworks and Technologies
 
-You can view a fully working demo at [demo-nextjs-with-supabase.vercel.app](https://demo-nextjs-with-supabase.vercel.app/).
+- **Next.js**: Works across the entire stack, including App Router, Pages Router, Middleware, Client, and Server.
+- **Supabase**: For authentication and database management, integrated with `supabase-ssr` for cookie-based auth.
+- **Tailwind CSS**: For styling the application.
+- **shadcn/ui**: For UI components.
+- **Vercel**: Deployment platform with automatic environment variable assignment and integration with Supabase.
 
-## Deploy to Vercel
+## Deployment
 
-Vercel deployment will guide you through creating a Supabase account and project.
+The project is configured for deployment with [Vercel](https://vercel.com). Environment variables are automatically assigned to the Vercel project during deployment.
 
-After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
+## Installation
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&project-name=nextjs-with-supabase&repository-name=nextjs-with-supabase&demo-title=nextjs-with-supabase&demo-description=This%20starter%20configures%20Supabase%20Auth%20to%20use%20cookies%2C%20making%20the%20user's%20session%20available%20throughout%20the%20entire%20Next.js%20app%20-%20Client%20Components%2C%20Server%20Components%2C%20Route%20Handlers%2C%20Server%20Actions%20and%20Middleware.&demo-url=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2F&external-id=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&demo-image=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png&integration-ids=oac_VqOgBHqhEoFTPzGkPd7L0iH6)
-
-The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
-
-If you wish to just develop locally and not deploy to Vercel, [follow the steps below](#clone-and-run-locally).
-
-## Clone and run locally
-
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
-
-2. Create a Next.js app using the Supabase Starter template npx command
+1. Clone the repository:
 
    ```bash
-   npx create-next-app -e with-supabase
+   git clone https://github.com/barkprotocol/nft-marketplace.git
    ```
 
-3. Use `cd` to change into the app's directory
+2. Navigate to the project directory:
 
    ```bash
-   cd name-of-new-app
+   cd nft-marketplace
    ```
 
-4. Rename `.env.local.example` to `.env.local` and update the following:
-
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT SUPABASE PROJECT API ANON KEY]
-   ```
-
-   Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Supabase project's API settings](https://app.supabase.com/project/_/settings/api)
-
-5. You can now run the Next.js local development server:
+3. Install the dependencies:
 
    ```bash
-   npm run dev
+   pnpm install
+   # or
+   yarn install
    ```
 
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
+4. Create a `.env.local` file in the root of your project and add your environment variables:
 
-6. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+   VERCEL_URL=your-vercel-url
+   ```
 
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
+5. Run the development server:
 
-## Feedback and issues
+   ```bash
+   pnpm run dev
+   # or
+   yarn dev
+   ```
 
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
+   Visit `http://localhost:3000` in your browser to see the app in action.
 
-## More Supabase examples
+## Usage
 
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
+- **Explore Collection:** Navigate to `/collection` to view the NFT collection.
+- **Mint NFT:** If you're a premium member, visit `/mint` to mint new NFTs.
+- **Upgrade Membership:** Access `/upgrade` to upgrade your membership.
+
+## Contributing
+
+We welcome contributions! To contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add new feature'`).
+5. Push to the branch (`git push origin feature/your-feature`).
+6. Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Supabase](https://supabase.io/) - Database and authentication.
+- [Solana](https://solana.com/) - Blockchain platform.
+- [Next.js](https://nextjs.org/) - Framework for React.
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework.
+- [shadcn/ui](https://shadcn.dev) - UI component library.
+- [Vercel](https://vercel.com) - Deployment platform.

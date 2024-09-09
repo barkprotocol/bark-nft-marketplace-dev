@@ -1,19 +1,18 @@
-import DeployButton from "@/components/deploy-button";
-import { EnvVarWarning } from "@/components/env-var-warning";
-import HeaderAuth from "@/components/header-auth";
-import { ThemeSwitcher } from "@/components/theme-switcher";
-import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
 import Link from "next/link";
 import Image from "next/image";
+import { hasEnvVars } from "@/utils/supabase/check-env-vars";
+import ConnectButton from "@/components/connect-button";
+import { EnvVarWarning } from "@/components/env-var-warning";
+import HeaderAuth from "@/components/header-auth";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 import "./globals.css";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : "http://localhost:3000";
 
-// Logo URL
 const logoUrl = "https://ucarecdn.com/d63c1594-27cb-4b9e-afd1-8e5a9c790db9/logodark.svg";
 
 export const metadata = {
@@ -47,7 +46,7 @@ export default function RootLayout({
                         alt="BARK Logo"
                         width={120}
                         height={60}
-                        className="cursor-pointer" // Optional: add styles
+                        className="cursor-pointer"
                       />
                     </Link>
                     <div className="flex items-center gap-2">
@@ -60,7 +59,6 @@ export default function RootLayout({
               <div className="flex flex-col gap-20 max-w-5xl p-5">
                 {children}
               </div>
-
               <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
                 <p>
                   Powered by{" "}

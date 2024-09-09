@@ -1,57 +1,17 @@
 import Hero from "@/components/hero";
-import { NFTCard } from "@/components/nft-card"; // Assuming you have a reusable NFTCard component or create one
-import Image from "next/image"; // Import for image handling
+import { NFTCard } from "@/components/ui/nft-card";
+import Image from "next/image";
 
 // Example NFT data (replace with actual data)
 const nfts = [
-  {
-    id: 1,
-    title: "BARK NFT 1",
-    description: "Exclusive NFT 1",
-    imageUrl: "https://example.com/nft1.png",
-  },
-  {
-    id: 2,
-    title: "BARK NFT 2",
-    description: "Exclusive NFT 2",
-    imageUrl: "https://example.com/nft2.png",
-  },
-  {
-    id: 3,
-    title: "BARK NFT 3",
-    description: "Exclusive NFT 3",
-    imageUrl: "https://example.com/nft3.png",
-  },
-  {
-    id: 4,
-    title: "BARK NFT 4",
-    description: "Exclusive NFT 4",
-    imageUrl: "https://example.com/nft4.png",
-  },
-  {
-    id: 5,
-    title: "BARK NFT 5",
-    description: "Exclusive NFT 5",
-    imageUrl: "https://example.com/nft5.png",
-  },
-  {
-    id: 6,
-    title: "BARK NFT 6",
-    description: "Exclusive NFT 6",
-    imageUrl: "https://example.com/nft6.png",
-  },
-  {
-    id: 7,
-    title: "BARK NFT 7",
-    description: "Exclusive NFT 7",
-    imageUrl: "https://example.com/nft7.png",
-  },
-  {
-    id: 8,
-    title: "BARK NFT 8",
-    description: "Exclusive NFT 8",
-    imageUrl: "https://example.com/nft8.png",
-  },
+  { id: 1, title: "BARK NFT 1", description: "Exclusive NFT 1", imageUrl: "https://ucarecdn.com/9416c194-b24e-4780-bf91-f55f4dd8f074/barkblink.png" },
+  { id: 2, title: "BARK NFT 2", description: "Exclusive NFT 2", imageUrl: "https://ucarecdn.com/9416c194-b24e-4780-bf91-f55f4dd8f074/barkblink.png" },
+  { id: 3, title: "BARK NFT 3", description: "Exclusive NFT 3", imageUrl: "https://ucarecdn.com/9416c194-b24e-4780-bf91-f55f4dd8f074/barkblink.png" },
+  { id: 4, title: "BARK NFT 4", description: "Exclusive NFT 4", imageUrl: "https://ucarecdn.com/9416c194-b24e-4780-bf91-f55f4dd8f074/barkblink.png" },
+  { id: 5, title: "BARK NFT 5", description: "Exclusive NFT 5", imageUrl: "https://ucarecdn.com/9416c194-b24e-4780-bf91-f55f4dd8f074/barkblink.png" },
+  { id: 6, title: "BARK NFT 6", description: "Exclusive NFT 6", imageUrl: "https://ucarecdn.com/9416c194-b24e-4780-bf91-f55f4dd8f074/barkblink.png" },
+  { id: 7, title: "BARK NFT 7", description: "Exclusive NFT 7", imageUrl: "https://ucarecdn.com/9416c194-b24e-4780-bf91-f55f4dd8f074/barkblink.png" },
+  { id: 8, title: "BARK NFT 8", description: "Exclusive NFT 8", imageUrl: "https://ucarecdn.com/9416c194-b24e-4780-bf91-f55f4dd8f074/barkblink.png" },
 ];
 
 export default async function Index() {

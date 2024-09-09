@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Button } from "@/components/ui/button";
 
 interface AppHeroProps {
   isPremiumMember: boolean;
@@ -39,25 +40,23 @@ export default function AppHero({ isPremiumMember }: AppHeroProps) {
 
           {/* Buttons */}
           <div className="flex justify-center space-x-4">
-            <Link href="/collection">
-              <a className="px-6 py-3 bg-blue-600 text-white text-lg font-medium rounded-md shadow-md hover:bg-blue-700 transition">
+            <Link href="/collection" aria-label="Explore NFT Collection">
+              <Button variant="default" className="px-6 py-3">
                 {COLLECTION_BUTTON_TEXT}
-              </a>
+              </Button>
             </Link>
 
             {isPremiumMember ? (
-              // If the user is a premium member, allow minting
-              <Link href="/mint">
-                <a className="px-6 py-3 bg-gray-300 text-black text-lg font-medium rounded-md shadow-md hover:bg-gray-400 transition">
+              <Link href="/mint" aria-label="Mint NFT">
+                <Button variant="secondary" className="px-6 py-3">
                   {MINT_NFT_BUTTON_TEXT}
-                </a>
+                </Button>
               </Link>
             ) : (
-              // If the user is not a premium member, prompt upgrade
-              <Link href="/upgrade">
-                <a className="px-6 py-3 bg-yellow-500 text-black text-lg font-medium rounded-md shadow-md hover:bg-yellow-600 transition">
+              <Link href="/upgrade" aria-label="Upgrade Membership">
+                <Button variant="outline" className="px-6 py-3">
                   {UPGRADE_BUTTON_TEXT}
-                </a>
+                </Button>
               </Link>
             )}
           </div>
