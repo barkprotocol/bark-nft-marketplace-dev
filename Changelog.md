@@ -14,12 +14,10 @@ All notable changes to this project will be documented in this file. The format 
 - Integrated environment variable checks into client-side components.
 
 ### Fixed
-
 - Fixed issues with using server-side functions (useTheme and hasEnvVars) in client-side components.
 - Resolved issues with RootLayout and Header components' interaction with next-themes and environment variables.
 
 ## Changed
-
 - Updated Header and Footer components to include social media links and environment variable warnings.
 - Updated RootLayout component to wrap the application with ThemeProvider and include Header and Footer
 
