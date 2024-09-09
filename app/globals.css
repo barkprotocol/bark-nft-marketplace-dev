@@ -57,13 +57,50 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .footer {
+    width: 100%;
+    flex: 0 0 auto; /* Prevent the footer from growing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0; /* Reduced padding */
+    background-color: var(--background); /* Use the variable for background color */
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    text-align: center;
+  }
+
+  .footer-content .text-sm {
+    font-size: 0.875rem; /* Adjust font size */
+  }
+
+  .footer-content .text-xs {
+    font-size: 0.75rem; /* Adjust font size */
+  }
+
+  .footer-content .flex {
+    gap: 1rem; /* Adjust gap between items */
+  }
+
+  .footer-content .social-icons a {
+    font-size: 1.5rem; /* Adjust icon size */
+  }
+
+  .footer-content .links {
+    margin-top: 1rem; /* Adjust margin */
   }
 }

@@ -13,7 +13,7 @@ const HERO_TITLE = "Welcome to the BARK Club";
 const HERO_DESCRIPTION_PREMIUM =
   "As a premium member, enjoy exclusive access to our elite collection of NFTs backed by real-world assets. Unlock top-tier club privileges and perks.";
 const HERO_DESCRIPTION_BASIC =
-  "Discover our exclusive collection of NFTs and become a premium member to unlock more rewards. Upgrade your membership for access to premium BARK assets.";
+  "Discover our exclusive collection of NFTs, tiered tokens and become a BARK´s club member to unlock more rewards. Upgrade your membership for access to premium assets.";
 const COLLECTION_BUTTON_TEXT = "Explore Collection";
 const MINT_NFT_BUTTON_TEXT = "Mint NFT";
 const UPGRADE_BUTTON_TEXT = "Upgrade Membership";

@@ -1,8 +1,9 @@
-import { GeistSans } from "geist/font/sans";
+import { Poppins, Syne } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Header, Footer } from "@/components/header";
 
+// Define the default URL for metadata
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : "http://localhost:3000";
@@ -13,13 +14,17 @@ export const metadata = {
   description: "NFT Marketplace",
 };
 
+// Import fonts with specific weights
+const syne = Syne({ weight: "700", subsets: ["latin"] });
+const poppins = Poppins({ weight: "400", subsets: ["latin"] });
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={GeistSans.className} suppressHydrationWarning>
+    <html lang="en" className={`${syne.className} ${poppins.className}`} suppressHydrationWarning>
       <body className="bg-background text-foreground">
         <ThemeProvider
           attribute="class"

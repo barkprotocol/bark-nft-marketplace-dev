@@ -1,6 +1,10 @@
+"use client";
+
 import Hero from "@/components/hero";
+import Features from "@/components/features";
 import { NFTCard } from "@/components/ui/nft-card";
-import Image from "next/image";
+import { useState } from "react";
+import Link from "next/link";
 
 // Example NFT data (replace with actual data)
 const nfts = [
@@ -14,15 +18,18 @@ const nfts = [
   { id: 8, title: "BARK NFT 8", description: "Exclusive NFT 8", imageUrl: "https://ucarecdn.com/9416c194-b24e-4780-bf91-f55f4dd8f074/barkblink.png" },
 ];
 
-export default async function Index() {
+export default function Index() {
   return (
     <>
       <Hero />
+      <Features />
       <main className="flex-1 flex flex-col gap-6 px-4">
-        <h2 className="font-medium text-xl mb-4">Collection</h2>
+        <h2 className="text-xl font-semibold mb-2">Collection</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {nfts.map((nft) => (
-            <NFTCard key={nft.id} nft={nft} />
+            <Link key={nft.id} href={`/nft/${nft.id}`} passHref>
+              <NFTCard nft={nft} />
+            </Link>
           ))}
         </div>
       </main>
