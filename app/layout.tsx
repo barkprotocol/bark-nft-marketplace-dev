@@ -1,4 +1,7 @@
+"use client";
+
 import { Poppins, Syne } from "next/font/google";
+import { createClient } from '@/utils/supabase/server'
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Header, Footer } from "@/components/header";
