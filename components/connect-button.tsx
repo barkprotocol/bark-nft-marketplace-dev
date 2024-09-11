@@ -1,23 +1,24 @@
-import Link from "next/link";
-import { Button } from "./ui/button";
+import React from 'react';
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { useWallet } from '@solana/wallet-adapter-react';
 
-export default function ConnectButton() {
+const ConnectButton: React.FC = () => {
+  const { connected } = useWallet();
+
   return (
-    <Link href="https://example.com" target="_blank" aria-label="Connect Wallet">
-      <Button
-        className="flex items-center gap-2 hover:bg-opacity-80"
-        size="sm"
-      >
-        <svg
-          className="w-3 h-3"
-          viewBox="0 0 76 65"
-          fill="hsl(var(--background)/1)"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" fill="inherit" />
-        </svg>
-        <span>Connect Wallet</span>
-      </Button>
-    </Link>
+    <div className="flex items-center justify-center">
+      {connected ? (
+        <div className="text-green-500 dark:text-green-300 text-sm md:text-base">
+          Connected
+        </div>
+      ) : (
+        <WalletMultiButton 
+          className="bg-slate-800 text-white dark:bg-slate-900 dark:text-white hover:bg-slate-700 dark:hover:bg-slate-800 rounded-md px-4 py-2 md:px-6 md:py-3 text-sm md:text-base"
+          aria-label="Connect Wallet"
+        />
+      )}
+    </div>
   );
-}
+};
+
+export default ConnectButton;

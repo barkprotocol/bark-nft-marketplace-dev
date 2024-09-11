@@ -1,12 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import Image from "next/image";
-import ConnectButton from "@/components/connect-button";
-import { EnvVarWarning } from "@/components/env-var-warning";
-import HeaderAuth from "@/components/header-auth";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { FaTelegramPlane, FaTwitter, FaInstagram, FaMediumM } from "react-icons/fa";
 
@@ -15,37 +11,37 @@ const logoLightUrl = "https://ucarecdn.com/801d46ca-f6d7-4661-9160-e14022ae0937/
 
 const Header = () => {
   const { theme } = useTheme();
-  const [hasEnvVars, setHasEnvVars] = useState(false);
-
-  useEffect(() => {
-    // Check if environment variables are set
-    const checkEnvVars = () => {
-      // Logic to check environment variables on the client
-      // This is a placeholder; replace with actual logic if needed
-      setHasEnvVars(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SOLANA_NETWORK);
-    };
-
-    checkEnvVars();
-  }, []);
 
   return (
     <nav className="w-full flex justify-center border-b border-foreground/10 h-16 bg-background">
       <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
         <div className="flex gap-5 items-center font-semibold">
-          <Link href="/">
+          <Link href="/" aria-label="Home">
             <Image
               src={theme === "dark" ? logoDarkUrl : logoLightUrl}
               alt="BARK Logo"
               width={120}
               height={60}
               className="cursor-pointer"
+              priority
             />
           </Link>
-          <div className="flex items-center gap-2">
-            <ConnectButton />
-          </div>
         </div>
-        {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
+        <div className="flex gap-4 ml-auto">
+          <Link
+            href="/sign-in"
+            className={`py-2 px-4 rounded-md ${theme === "dark" ? "bg-gray-700 text-white hover:bg-gray-900" : "bg-gray-700 text-white hover:bg-gray-700"}`}
+          >
+            Sign In
+          </Link>
+          <Link
+            href="/sign-up"
+            className={`py-2 px-4 rounded-md ${theme === "dark" ? "bg-gray-700 text-white hover:bg-gray-500" : "bg-gray-200 text-black hover:bg-black-700"}`}
+          >
+            Sign Up
+          </Link>
+          <ThemeSwitcher />
+        </div>
       </div>
     </nav>
   );
@@ -58,31 +54,28 @@ const Footer = () => (
         <p>Follow Us</p>
       </div>
       <div className="flex gap-4">
-        <Link href="https://t.me/bark_protocol" target="_blank" rel="noreferrer">
+        <Link href="https://t.me/bark_protocol" target="_blank" rel="noreferrer" aria-label="Telegram">
           <FaTelegramPlane className="text-2xl text-gray-400 hover:text-gray-600" />
         </Link>
-        <Link href="https://twitter.com/bark_protocol" target="_blank" rel="noreferrer">
+        <Link href="https://twitter.com/bark_protocol" target="_blank" rel="noreferrer" aria-label="Twitter">
           <FaTwitter className="text-2xl text-gray-400 hover:text-blue-500" />
         </Link>
-        <Link href="https://instagram.com/bark.protocol" target="_blank" rel="noreferrer">
+        <Link href="https://instagram.com/bark.protocol" target="_blank" rel="noreferrer" aria-label="Instagram">
           <FaInstagram className="text-2xl text-gray-400 hover:text-gray-600" />
         </Link>
-        <Link href="https://medium.com/@barkprotocol" target="_blank" rel="noreferrer">
+        <Link href="https://medium.com/@barkprotocol" target="_blank" rel="noreferrer" aria-label="Medium">
           <FaMediumM className="text-2xl text-gray-400 hover:text-gray-600" />
         </Link>
       </div>
       <p className="text-xs mt-4">&copy; {new Date().getFullYear()} BARK Protocol. All rights reserved.</p>
       <div className="flex gap-4 mt-4 text-xs">
-        <Link href="/terms-of-use" className="hover:underline">
+        <Link href="/terms-of-use" className="hover:underline" aria-label="Terms of Use">
           Terms of Use
         </Link>
-        <Link href="/disclaimer" className="hover:underline">
+        <Link href="/disclaimer" className="hover:underline" aria-label="Disclaimer">
           Disclaimer
         </Link>
       </div>
-    </div>
-    <div className="mb-4">
-      <ThemeSwitcher />
     </div>
   </footer>
 );

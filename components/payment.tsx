@@ -20,6 +20,11 @@ const Payment = ({ recipient, amount, description }: PaymentProps) => {
       return;
     }
 
+    if (!recipient || !amount || amount <= 0) {
+      toast.error("Invalid recipient address or amount.");
+      return;
+    }
+
     try {
       setLoading(true);
       
@@ -44,22 +49,26 @@ const Payment = ({ recipient, amount, description }: PaymentProps) => {
       toast.success(`Payment of ${amount} SOL to ${recipient} successful!`);
     } catch (error) {
       console.error("Payment failed:", error);
-      toast.error("Payment failed. Please try again.");
+      toast.error("Payment failed. Please check your connection and try again.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="payment-section">
-      <p>Description: {description}</p>
-      <p>Amount: {amount} SOL</p>
+    <div className="payment-section p-4 border rounded-lg shadow-md bg-white dark:bg-gray-800">
+      <p className="text-gray-700 dark:text-gray-300 mb-2">Description: {description}</p>
+      <p className="text-gray-700 dark:text-gray-300 mb-4">Amount: {amount} SOL</p>
       <button
         onClick={handlePayment}
         disabled={loading}
-        className="bg-black-800 text-white py-2 px-4 rounded hover:bg-black-900"
+        className="bg-black text-white py-2 px-4 rounded hover:bg-gray-900 transition"
       >
-        {loading ? 'Processing...' : 'Make Payment'}
+        {loading ? (
+          <span>Processing...</span>
+        ) : (
+          <span>Make Payment</span>
+        )}
       </button>
     </div>
   );

@@ -1,43 +1,45 @@
-'use client'
+'use client';
 
-import { FC, useState } from 'react'
-import { useConnection, useWallet } from '@solana/wallet-adapter-react'
-import { PublicKey, Transaction } from '@solana/web3.js'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { FC, useState } from 'react';
+import { useConnection, useWallet } from '@solana/wallet-adapter-react';
+import { Transaction } from '@solana/web3.js';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { toast } from 'react-toastify';
 
 const MintNFT: FC = () => {
-  const { connection } = useConnection()
-  const { publicKey, sendTransaction } = useWallet()
-  const [tier, setTier] = useState('bronze')
-  const [isMinting, setIsMinting] = useState(false)
+  const { connection } = useConnection();
+  const { publicKey, sendTransaction } = useWallet();
+  const [tier, setTier] = useState('bronze');
+  const [isMinting, setIsMinting] = useState(false);
 
   const mintNFT = async () => {
-    if (!publicKey) return
+    if (!publicKey) {
+      toast.error("Please connect your wallet.");
+      return;
+    }
 
-    setIsMinting(true)
+    setIsMinting(true);
 
     try {
-      // Here you would typically:
-      // 1. Call your Solana program to mint the NFT
-      // 2. Create and send a transaction
-
-      // This is a placeholder for the actual minting logic
-      const transaction = new Transaction()
+      // Construct the transaction for minting NFT
+      const transaction = new Transaction();
       // Add instructions to the transaction here
+      // e.g., transaction.add(mintInstruction);
 
-      const signature = await sendTransaction(transaction, connection)
-      await connection.confirmTransaction(signature, 'confirmed')
+      // Send the transaction
+      const signature = await sendTransaction(transaction, connection);
+      await connection.confirmTransaction(signature, 'confirmed');
 
-      alert(`NFT minted! Signature: ${signature}`)
+      toast.success(`NFT minted successfully! Signature: ${signature}`);
     } catch (error) {
-      console.error('Error minting NFT:', error)
-      alert('Failed to mint NFT')
+      console.error('Error minting NFT:', error);
+      toast.error('Failed to mint NFT. Please try again.');
     } finally {
-      setIsMinting(false)
+      setIsMinting(false);
     }
-  }
+  };
 
   return (
     <Card className="w-[350px]">
@@ -57,13 +59,17 @@ const MintNFT: FC = () => {
               <SelectItem value="sparky">Sparky Bros</SelectItem>
             </SelectContent>
           </Select>
-          <Button onClick={mintNFT} disabled={!publicKey || isMinting}>
+          <Button
+            onClick={mintNFT}
+            disabled={!publicKey || isMinting}
+            className={`transition-colors duration-300 ${isMinting ? 'bg-gray-500' : 'bg-black hover:bg-gray-800'}`}
+          >
             {isMinting ? 'Minting...' : 'Mint NFT'}
           </Button>
         </div>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
 
-export default MintNFT
+export default MintNFT;

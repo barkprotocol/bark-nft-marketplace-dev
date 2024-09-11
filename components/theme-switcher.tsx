@@ -58,17 +58,26 @@ const ThemeSwitcher = () => {
       <DropdownMenuContent className="w-44" align="end">
         <DropdownMenuRadioGroup
           value={theme}
-          onValueChange={(e) => setTheme(e)}
+          onValueChange={(value) => setTheme(value)}
         >
-          <DropdownMenuRadioItem className="flex items-center gap-2" value="light">
+          <DropdownMenuRadioItem
+            className="flex items-center gap-2"
+            value="light"
+          >
             <Sun size={ICON_SIZE} className="text-muted-foreground" aria-hidden="true" />
             <span>Light</span>
           </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem className="flex items-center gap-2" value="dark">
+          <DropdownMenuRadioItem
+            className="flex items-center gap-2"
+            value="dark"
+          >
             <Moon size={ICON_SIZE} className="text-muted-foreground" aria-hidden="true" />
             <span>Dark</span>
           </DropdownMenuRadioItem>
-          <DropdownMenuRadioItem className="flex items-center gap-2" value="system">
+          <DropdownMenuRadioItem
+            className="flex items-center gap-2"
+            value="system"
+          >
             <Laptop size={ICON_SIZE} className="text-muted-foreground" aria-hidden="true" />
             <span>System</span>
           </DropdownMenuRadioItem>

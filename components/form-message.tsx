@@ -4,21 +4,29 @@ export type Message =
   | { message: string };
 
 export function FormMessage({ message }: { message: Message }) {
-  return (
-    <div className="flex flex-col gap-2 w-full max-w-md text-sm">
-      {"success" in message && (
-        <div className="text-foreground border-l-2 border-foreground px-4">
-          {message.success}
-        </div>
-      )}
-      {"error" in message && (
-        <div className="text-destructive-foreground border-l-2 border-destructive-foreground px-4">
-          {message.error}
-        </div>
-      )}
-      {"message" in message && (
-        <div className="text-foreground border-l-2 px-4">{message.message}</div>
-      )}
-    </div>
-  );
+  if ('success' in message) {
+    return (
+      <div className="text-foreground border-l-2 border-foreground px-4 py-2 bg-green-50">
+        {message.success}
+      </div>
+    );
+  }
+
+  if ('error' in message) {
+    return (
+      <div className="text-destructive-foreground border-l-2 border-destructive-foreground px-4 py-2 bg-red-50">
+        {message.error}
+      </div>
+    );
+  }
+
+  if ('message' in message) {
+    return (
+      <div className="text-foreground border-l-2 border-foreground px-4 py-2 bg-blue-50">
+        {message.message}
+      </div>
+    );
+  }
+
+  return null; // or return a default message if desired
 }

@@ -8,18 +8,40 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 
 export default function HeaderAuth() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<{ email: string } | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchUser() {
-      if (!hasEnvVars) return;
+      if (!hasEnvVars) {
+        setLoading(false);
+        return;
+      }
 
-      const client = createClient();
-      const { data: { user } } = await client.auth.getUser();
-      setUser(user);
+      try {
+        const client = createClient();
+        const { data, error } = await client.auth.getUser();
+        
+        if (error) {
+          setError(error.message);
+          setUser(null);
+        } else {
+          setUser(data.user);
+        }
+      } catch (err) {
+        setError("Failed to fetch user");
+      } finally {
+        setLoading(false);
+      }
     }
+    
     fetchUser();
   }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   if (!hasEnvVars) {
     return (
@@ -33,7 +55,11 @@ export default function HeaderAuth() {
       </div>
     );
   }
-  
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return user ? (
     <div className="flex items-center gap-4">
       Hey, {user.email}!

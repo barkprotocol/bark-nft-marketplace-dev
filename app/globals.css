@@ -64,6 +64,7 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif; /* Ensure the use of Poppins font */
   }
 }
 
@@ -75,13 +76,14 @@
     flex-direction: column;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1rem 0; /* Reduced padding */
+    padding: 1rem 0; /* Adjust padding */
     background-color: var(--background); /* Use the variable for background color */
   }
 
   .footer-content {
     max-width: 1200px;
     text-align: center;
+    padding: 0 1rem; /* Add horizontal padding for smaller screens */
   }
 
   .footer-content .text-sm {
