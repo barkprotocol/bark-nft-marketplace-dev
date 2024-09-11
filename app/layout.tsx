@@ -1,7 +1,5 @@
-"use client";
-
 import { Poppins, Syne } from "next/font/google";
-import { createClient } from '@/utils/supabase/server'
+import { createClient } from '@/utils/supabase/server';
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { Header, Footer } from "@/components/header";
@@ -18,7 +16,7 @@ export const metadata = {
 };
 
 // Import fonts with specific weights
-const syne = Syne({ weight: "700", subsets: ["latin"] });
+const syne = Syne({ weight: "800", subsets: ["latin"] });
 const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 
 export default function RootLayout({
