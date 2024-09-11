@@ -61,7 +61,7 @@ export default function AppHero({ isPremiumMember }: AppHeroProps) {
                 </Link>
               </>
             ) : (
-              <Link href="/upgrade" aria-label="Upgrade Membership">
+              <Link href="/membership/upgrade" aria-label="Upgrade Membership">
                 <Button variant="outline" className="px-6 py-3">
                   {UPGRADE_BUTTON_TEXT}
                 </Button>

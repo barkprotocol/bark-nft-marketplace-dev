@@ -22,7 +22,6 @@ export default function MintNFT() {
     setSuccess(null);
 
     try {
-      // Replace with your actual minting logic
       const response = await fetch("/api/mint", {
         method: "POST",
         headers: {
@@ -32,7 +31,7 @@ export default function MintNFT() {
       });
 
       const result = await response.json();
-      
+
       if (response.ok) {
         setSuccess("NFT minted successfully!");
         setTitle("");
@@ -93,8 +92,8 @@ export default function MintNFT() {
             >
               {minting ? "Minting..." : "Mint NFT"}
             </button>
-            {error && <p className="text-red-500">{error}</p>}
-            {success && <p className="text-green-500">{success}</p>}
+            {error && <p className="text-red-500 mt-4">{error}</p>}
+            {success && <p className="text-green-500 mt-4">{success}</p>}
           </form>
         </div>
       </main>

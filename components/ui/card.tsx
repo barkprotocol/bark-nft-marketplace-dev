@@ -14,8 +14,13 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ nft }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-      <img src={nft.imageUrl} alt={nft.title} className="w-full h-48 object-cover rounded-t-lg" />
+    <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+      <img
+        src={nft.imageUrl}
+        alt={nft.title}
+        className="w-full h-48 object-cover rounded-t-lg"
+        loading="lazy" // Improve performance by lazy loading images
+      />
       <div className="p-4">
         <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">{nft.title}</h2>
         <p className="text-gray-700 dark:text-gray-300 mb-4">{nft.description}</p>

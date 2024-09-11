@@ -29,7 +29,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, title, description, onClick, clas
           objectFit="cover"
           className="w-full h-full"
           placeholder="blur"  // Include placeholder for loading
-          blurDataURL="/path/to/placeholder.jpg"  // Provide a low-resolution placeholder image
+          blurDataURL="/images/placeholder.jpg"  // Ensure the path is correct
         />
       </div>
       <div className="p-4">
