@@ -17,6 +17,7 @@ const HERO_DESCRIPTION_BASIC =
 const COLLECTION_BUTTON_TEXT = "Explore Collection";
 const MINT_NFT_BUTTON_TEXT = "Mint NFT";
 const UPGRADE_BUTTON_TEXT = "Upgrade Membership";
+const CLAIM_REWARDS_BUTTON_TEXT = "Claim your rewards";
 
 export default function AppHero({ isPremiumMember }: AppHeroProps) {
   return (
@@ -47,11 +48,18 @@ export default function AppHero({ isPremiumMember }: AppHeroProps) {
             </Link>
 
             {isPremiumMember ? (
-              <Link href="/mint" aria-label="Mint NFT">
-                <Button variant="secondary" className="px-6 py-3">
-                  {MINT_NFT_BUTTON_TEXT}
-                </Button>
-              </Link>
+              <>
+                <Link href="/mint" aria-label="Mint NFT">
+                  <Button variant="secondary" className="px-6 py-3">
+                    {MINT_NFT_BUTTON_TEXT}
+                  </Button>
+                </Link>
+                <Link href="/claim-rewards" aria-label="Claim Rewards">
+                  <Button variant="outline" className="px-6 py-3">
+                    {CLAIM_REWARDS_BUTTON_TEXT}
+                  </Button>
+                </Link>
+              </>
             ) : (
               <Link href="/upgrade" aria-label="Upgrade Membership">
                 <Button variant="outline" className="px-6 py-3">
