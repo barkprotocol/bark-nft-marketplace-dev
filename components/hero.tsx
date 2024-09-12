@@ -32,12 +32,12 @@ export default function AppHero({ membershipLevel }: AppHeroProps) {
       additionalButtons = (
         <>
           <Link href="/mint" aria-label="Mint NFT">
-            <Button variant="secondary" className="px-6 py-3">
+            <Button variant="secondary" className="px-6 py-3 text-sm sm:text-base">
               {MINT_NFT_BUTTON_TEXT}
             </Button>
           </Link>
           <Link href="/claim-rewards" aria-label="Claim Rewards">
-            <Button variant="outline" className="px-6 py-3">
+            <Button variant="outline" className="px-6 py-3 text-sm sm:text-base">
               {CLAIM_REWARDS_BUTTON_TEXT}
             </Button>
           </Link>
@@ -49,12 +49,12 @@ export default function AppHero({ membershipLevel }: AppHeroProps) {
       additionalButtons = (
         <>
           <Link href="/mint" aria-label="Mint NFT">
-            <Button variant="secondary" className="px-6 py-3">
+            <Button variant="secondary" className="px-6 py-3 text-sm sm:text-base">
               {MINT_NFT_BUTTON_TEXT}
             </Button>
           </Link>
           <Link href="/claim-rewards" aria-label="Claim Rewards">
-            <Button variant="outline" className="px-6 py-3">
+            <Button variant="outline" className="px-6 py-3 text-sm sm:text-base">
               {CLAIM_REWARDS_BUTTON_TEXT}
             </Button>
           </Link>
@@ -85,14 +85,14 @@ export default function AppHero({ membershipLevel }: AppHeroProps) {
           {/* Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/collection" aria-label="Explore NFT Collection">
-              <Button variant="default" className="px-6 py-3">
+              <Button variant="default" className="px-6 py-3 text-sm sm:text-base">
                 {COLLECTION_BUTTON_TEXT}
               </Button>
             </Link>
 
             {additionalButtons || (
               <Link href="/membership/upgrade" aria-label="Upgrade Membership">
-                <Button variant="outline" className="px-6 py-3">
+                <Button variant="outline" className="px-6 py-3 text-sm sm:text-base">
                   {UPGRADE_BUTTON_TEXT}
                 </Button>
               </Link>

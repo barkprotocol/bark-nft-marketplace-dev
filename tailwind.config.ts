@@ -51,12 +51,12 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        beige: "#D0BFB4", // Add beige color
+        sand: "#D0BFB4", // Custom sand color
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 8px)",
+        sm: "calc(var(--radius) - 6px)",
       },
       boxShadow: {
         'lg': '0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08)',

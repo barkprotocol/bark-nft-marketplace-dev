@@ -12,7 +12,7 @@ interface NFTCardProps {
 
 export const NFTCard: React.FC<NFTCardProps> = ({ nft }) => (
   <div
-    className="nft-card bg-white p-4 rounded-lg shadow-md transition-transform duration-300 hover:shadow-lg"
+    className="nft-card bg-white p-4 rounded-lg shadow-md transition-transform duration-300 hover:shadow-lg hover:scale-105"
     aria-label={`NFT Card for ${nft.title}`}
   >
     <Image
@@ -28,7 +28,7 @@ export const NFTCard: React.FC<NFTCardProps> = ({ nft }) => (
         e.currentTarget.src = '/path/to/default-image.jpg'; // Fallback image
       }}
     />
-    <h3 className="text-lg font-semibold mb-2">{nft.title}</h3>
-    <p className="text-sm text-gray-600">{nft.description}</p>
+    <h3 className="text-lg font-semibold mb-2 truncate">{nft.title}</h3>
+    <p className="text-sm text-gray-600 truncate">{nft.description}</p>
   </div>
 );

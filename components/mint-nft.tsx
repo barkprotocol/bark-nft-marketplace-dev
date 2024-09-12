@@ -2,19 +2,21 @@
 
 import { FC, useState } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { Transaction } from '@solana/web3.js';
+import { PublicKey } from '@solana/web3.js';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'react-toastify';
+import { mintNFT } from '@/utils/solana/solana';
+import { BARK_MINT_ADDRESS } from '@/utils/constants'; // Ensure this is imported from the correct file
 
 const MintNFT: FC = () => {
   const { connection } = useConnection();
-  const { publicKey, sendTransaction } = useWallet();
+  const { publicKey } = useWallet();
   const [tier, setTier] = useState('bronze');
   const [isMinting, setIsMinting] = useState(false);
 
-  const mintNFT = async () => {
+  const mintNFTHandler = async () => {
     if (!publicKey) {
       toast.error("Please connect your wallet.");
       return;
@@ -23,19 +25,19 @@ const MintNFT: FC = () => {
     setIsMinting(true);
 
     try {
-      // Construct the transaction for minting NFT
-      const transaction = new Transaction();
-      // Add instructions to the transaction here
-      // e.g., transaction.add(mintInstruction);
+      const metadataUri = `https://example.com/metadata/${tier}.json`;
 
-      // Send the transaction
-      const signature = await sendTransaction(transaction, connection);
-      await connection.confirmTransaction(signature, 'confirmed');
+      // Call the mintNFT function from utils/solana/solana.ts
+      const result = await mintNFT(publicKey, new PublicKey(BARK_MINT_ADDRESS), metadataUri);
 
-      toast.success(`NFT minted successfully! Signature: ${signature}`);
+      if (result.success) {
+        toast.success(`NFT minted successfully! Signature: ${result.signature}`);
+      } else {
+        toast.error(`Failed to mint NFT. ${result.message}`);
+      }
     } catch (error) {
       console.error('Error minting NFT:', error);
-      toast.error('Failed to mint NFT. Please try again.');
+      toast.error(`Failed to mint NFT. ${error.message || 'Please try again.'}`);
     } finally {
       setIsMinting(false);
     }
@@ -45,11 +47,11 @@ const MintNFT: FC = () => {
     <Card className="w-[350px]">
       <CardHeader>
         <CardTitle>Mint BARK NFT</CardTitle>
-        <CardDescription>Choose your membership tier and mint your NFT</CardDescription>
+        <CardDescription>Select a membership tier to mint your NFT</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col space-y-4">
-          <Select onValueChange={(value) => setTier(value)}>
+          <Select value={tier} onValueChange={(value) => setTier(value)}>
             <SelectTrigger>
               <SelectValue placeholder="Select a tier" />
             </SelectTrigger>
@@ -60,7 +62,7 @@ const MintNFT: FC = () => {
             </SelectContent>
           </Select>
           <Button
-            onClick={mintNFT}
+            onClick={mintNFTHandler}
             disabled={!publicKey || isMinting}
             className={`transition-colors duration-300 ${isMinting ? 'bg-gray-500' : 'bg-black hover:bg-gray-800'}`}
           >

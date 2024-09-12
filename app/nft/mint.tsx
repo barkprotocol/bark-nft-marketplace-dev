@@ -21,6 +21,13 @@ export default function MintNFT() {
     setError(null);
     setSuccess(null);
 
+    // Basic URL validation
+    if (!/^https?:\/\/.+\.(jpg|jpeg|png|gif)$/i.test(imageUrl)) {
+      setError("Invalid image URL. Please provide a valid image URL ending with .jpg, .jpeg, .png, or .gif.");
+      setMinting(false);
+      return;
+    }
+
     try {
       const response = await fetch("/api/mint", {
         method: "POST",
@@ -37,6 +44,7 @@ export default function MintNFT() {
         setTitle("");
         setDescription("");
         setImageUrl("");
+        router.push("/nft/success"); // Redirect on success, replace with your success route
       } else {
         throw new Error(result.message || "Minting failed");
       }

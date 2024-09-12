@@ -7,9 +7,23 @@ import rateLimiter from '@/lib/rate-limit'; // The rate limiting middleware
 
 const logger = getLogger('membership-upgrade');
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+type ErrorResponse = {
+  message: string;
+  errors?: string[];
+};
+
+type SuccessResponse = {
+  message: string;
+  result?: any;
+};
+
+export default async function handler(req: NextApiRequest, res: NextApiResponse<SuccessResponse | ErrorResponse>) {
   // Apply rate limiting
-  await new Promise((resolve) => rateLimiter(req as any, res as any, resolve));
+  try {
+    await new Promise<void>((resolve, reject) => rateLimiter(req as any, res as any, resolve));
+  } catch (rateLimitError) {
+    return res.status(429).json({ message: 'Too many requests. Please try again later.' });
+  }
 
   // Retrieve session information
   const session = await getSession({ req });

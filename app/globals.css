@@ -29,6 +29,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --sand: #D0BFB4; /* Color for beige/sand */
   }
 
   .dark {
@@ -64,15 +65,21 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Poppins', sans-serif; /* Ensure the use of Poppins font */
+    font-family: 'Poppins', sans-serif; /* Default font for body text */
+    color: var(--gray-700); /* Use the sand color */
   }
 
-  h1, h2, h3, h4, h5, h6, p {
-    color: var(--beige); /* Use beige color for text */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Syne', sans-serif; /* Syne for headings */
+    color: var(--gray-900); /* Use sand color for text */
   }
 
-  .text-beige {
-    color: #D0BFB4;
+  p {
+    color: var(--gray-400);
+  }
+
+  .text-sand {
+    color: var(--sand); /* Use the sand color */
   }
 }
 
@@ -93,14 +100,17 @@
     max-width: 1200px;
     text-align: center;
     padding: 0 1rem; /* Add horizontal padding for smaller screens */
+    color: var(--sand); /* Use the sand color */
   }
 
   .footer-content .text-sm {
     font-size: 0.875rem; /* Adjust font size */
+    color: var(--sand); /* Use the sand color */
   }
 
   .footer-content .text-xs {
     font-size: 0.75rem; /* Adjust font size */
+    color: var(--sand); /* Use the sand color */
   }
 
   .footer-content .flex {
@@ -109,9 +119,11 @@
 
   .footer-content .social-icons a {
     font-size: 1.5rem; /* Adjust icon size */
+    color: var(--sand); /* Use the sand color */
   }
 
   .footer-content .links {
     margin-top: 1rem; /* Adjust margin */
+    color: var(--sand); /* Use the sand color */
   }
 }

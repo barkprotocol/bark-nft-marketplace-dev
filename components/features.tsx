@@ -1,5 +1,6 @@
 "use client";
 
+import React from 'react';
 import { FastForward, Lock, DollarSign, LaptopMinimal } from 'lucide-react';
 
 interface Feature {
@@ -31,7 +32,7 @@ const features: Feature[] = [
   },
 ];
 
-const Features = () => (
+const Features: React.FC = () => (
   <section className="py-12 bg-sand-50">
     <div className="container mx-auto px-4">
       <h2 className="text-3xl font-bold text-center mb-8 text-sand-700">Our Features</h2>
@@ -53,4 +54,4 @@ const Features = () => (
   </section>
 );
 
-export default Features;
+export default React.memo(Features);
