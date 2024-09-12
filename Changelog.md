@@ -10,16 +10,12 @@ All notable changes to this project will be documented in this file. The format 
 - Responsive design with Tailwind CSS.
 - Components provided by shadcn/ui.
 - Deployment configuration for Vercel.
-- Added ThemeSwitcher component for toggling between light and dark themes.
+- Added `ThemeSwitcher` component for toggling between light and dark themes.
 - Integrated environment variable checks into client-side components.
 
 ### Fixed
-- Fixed issues with using server-side functions (useTheme and hasEnvVars) in client-side components.
-- Resolved issues with RootLayout and Header components' interaction with next-themes and environment variables.
-
-## Changed
-- Updated Header and Footer components to include social media links and environment variable warnings.
-- Updated RootLayout component to wrap the application with ThemeProvider and include Header and Footer
+- Resolved issues with server-side functions (`useTheme` and `hasEnvVars`) in client-side components.
+- Fixed interaction issues between `RootLayout` and `Header` components with `next-themes` and environment variables.
 
 ## [1.0.0] - 2024-09-09
 
@@ -28,15 +24,15 @@ All notable changes to this project will be documented in this file. The format 
 - **Mint NFTs:** Option to mint new NFTs for premium members.
 - **Upgrade Membership:** Feature to upgrade to premium for additional rewards.
 - **Styling:** Implemented Tailwind CSS for styling the application.
-- **Theming:** Added support for light and dark mode.
+- **Theming:** Added support for light and dark modes.
 
 ### Changed
-- Updated README.md with installation and usage instructions.
+- Updated `README.md` with installation and usage instructions.
 - Configured environment variables for deployment with Vercel.
 - Added support for image domains in `next.config.js`.
 
 ### Fixed
-- Resolved issue with `createServerClient` function name conflict in `server.ts`.
+- Resolved `createServerClient` function name conflict in `server.ts`.
 - Fixed import path errors in `header-auth.tsx`.
 - Corrected image source configuration in `next.config.js`.
 

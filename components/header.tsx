@@ -26,17 +26,24 @@ const Header = () => {
               priority
             />
           </Link>
+          <div className="hidden md:flex gap-8 items-center">
+            <Link href="/" className="hover:underline">Home</Link>
+            <Link href="/about" className="hover:underline">About</Link>
+            <Link href="/services" className="hover:underline">Services</Link>
+            <Link href="/membership" className="hover:underline">Membership</Link>
+            <Link href="/faq" className="hover:underline">FAQ</Link>
+          </div>
         </div>
-        <div className="flex gap-4 ml-auto">
+        <div className="flex gap-4 ml-auto items-center">
           <Link
             href="/sign-in"
-            className={`py-2 px-4 rounded-md ${theme === "dark" ? "bg-gray-700 text-white hover:bg-gray-900" : "bg-gray-700 text-white hover:bg-gray-700"}`}
+            className={`py-2 px-4 rounded-md ${theme === "dark" ? "bg-gray-600 text-white hover:bg-gray-900" : "bg-gray-700 text-white hover:bg-gray-600"}`}
           >
             Sign In
           </Link>
           <Link
             href="/sign-up"
-            className={`py-2 px-4 rounded-md ${theme === "dark" ? "bg-gray-700 text-white hover:bg-gray-500" : "bg-gray-200 text-black hover:bg-black-700"}`}
+            className={`py-2 px-4 rounded-md ${theme === "dark" ? "bg-gray-700 text-white hover:bg-gray-100" : "bg-gray-200 text-black hover:bg-gray-100"}`}
           >
             Sign Up
           </Link>

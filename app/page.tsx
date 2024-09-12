@@ -3,6 +3,8 @@
 import Hero from "@/components/hero";
 import { createClient } from '@/utils/supabase/server'
 import Features from "@/components/features";
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 import { NFTCard } from "@/components/ui/nft-card";
 import { useState } from "react";
 import Link from "next/link";

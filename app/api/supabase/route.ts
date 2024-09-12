@@ -1,12 +1,21 @@
 // app/api/supabase/route.ts
 import { createServerClient } from '@supabase/ssr';
-import { cookies } from 'next/headers';
+import { cookies, NextResponse } from 'next/headers';
 
 export async function GET() {
   const cookieStore = cookies();
+
+  // Check if environment variables are defined
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    return NextResponse.json({ error: 'Supabase environment variables are not set' }, { status: 500 });
+  }
+
   const supabaseClient = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    supabaseUrl,
+    supabaseAnonKey,
     {
       cookies: {
         getAll() {
@@ -18,14 +27,12 @@ export async function GET() {
               cookieStore.set(name, value, options);
             });
           } catch (error) {
-            // Handle error
+            console.error('Error setting cookies:', error);
           }
         },
       },
     }
   );
 
-  return new Response(JSON.stringify({ message: 'Client created' }), {
-    headers: { 'Content-Type': 'application/json' },
-  });
+  return NextResponse.json({ message: 'Client created' });
 }

@@ -60,8 +60,8 @@ export default function CollectionPage() {
   return (
     <>
       <Hero isPremiumMember={false} /> {/* Pass actual prop based on user status */}
-      <main className="flex-1 flex flex-col gap-6 px-4">
-        <h2 className="font-medium text-xl mb-4">NFT Collection</h2>
+      <main className="flex-1 flex flex-col gap-6 px-4 py-8">
+        <h2 className="text-2xl font-bold mb-6">NFT Collection</h2>
         
         <div className="flex justify-center mb-8">
           <img 
