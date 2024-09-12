@@ -1,49 +1,56 @@
+// pages/about.tsx
 import { FC } from 'react';
 import Head from 'next/head';
-import { FaInfoCircle, FaUsers, FaChartLine, FaCogs } from 'react-icons/fa';
 
 const About: FC = () => {
   return (
     <>
       <Head>
         <title>About Us | BARK Protocol</title>
-        <meta name="description" content="Learn more about BARK Protocol, our mission, vision, and the innovative team behind the project." />
+        <meta name="description" content="Learn more about BARK Protocol, our mission, vision, and the story behind our project." />
       </Head>
       <main className="p-6 max-w-6xl mx-auto">
-        <h1 className="text-4xl font-extrabold mb-8 text-center">About Us</h1>
-        <p className="mb-12 text-center text-lg text-gray-600">
-          At BARK Protocol, we are committed to transforming the digital asset landscape through innovative solutions on the Solana blockchain. Learn more about our mission, vision, growth, and technology below.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-            <FaInfoCircle className="text-5xl mb-4" style={{ color: '#D0BFB4' }} />
-            <h2 className="text-xl font-semibold mb-3">Our Mission</h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              Our mission is to revolutionize the management and utilization of digital assets by leveraging cutting-edge technologies on the Solana blockchain.
+        {/* Hero Section */}
+        <section className="relative w-full h-[calc(100vh-80px)] mb-16 bg-cover bg-center" style={{ backgroundImage: "url('https://ucarecdn.com/93413ee3-c509-497d-8f55-f9fa4589e6de/barkmascottrasparentbg.png')" }}>
+          <div className="absolute inset-0 bg-black opacity-40"></div>
+          <div className="relative flex flex-col items-center justify-center w-full h-full text-center p-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-100 dark:text-gray-100 mb-6">About Us</h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-200 dark:text-gray-200 mb-8 max-w-4xl mx-auto">
+              Discover the vision, mission, and story behind BARK Protocol. Learn how we are transforming the digital asset landscape with innovative technology and a commitment to excellence.
             </p>
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-            <FaUsers className="text-5xl mb-4" style={{ color: '#D0BFB4' }} />
-            <h2 className="text-xl font-semibold mb-3">Our Vision</h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              We envision a dynamic ecosystem where digital assets are seamlessly integrated, managed, and enhanced through community-driven innovation and collaboration.
+        </section>
+
+        {/* Story Section */}
+        <section id="story" className="mb-16 px-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">Our Story</h2>
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+              BARK Protocol began with a simple yet ambitious goal: to revolutionize the way we interact with digital assets. Founded by a team of blockchain enthusiasts, our journey started with a shared vision of creating a more transparent and user-centric digital economy.
+            </p>
+            <p className="text-lg text-gray-700 dark:text-gray-300">
+              From our initial development phases to our current innovations, every step has been driven by our commitment to excellence and our passion for empowering users. Our story is one of resilience, innovation, and an unwavering dedication to transforming the digital asset landscape.
             </p>
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-            <FaChartLine className="text-5xl mb-4" style={{ color: '#D0BFB4' }} />
-            <h2 className="text-xl font-semibold mb-3">Our Growth</h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              Explore our journey and key milestones as we continue to grow and push the boundaries of blockchain technology and digital asset management.
-            </p>
+        </section>
+
+        {/* About Content Section */}
+        <section id="about-content" className="mb-16 px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="flex flex-col justify-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+              <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Our Mission</h2>
+              <p className="text-gray-700 dark:text-gray-300">
+                Our mission is to transform blockchain asset management by providing cutting-edge solutions that enhance the creation, management, and rewards of NFTs. We are dedicated to delivering innovation that meets the evolving needs of our users.
+              </p>
+            </div>
+            <div className="flex flex-col justify-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
+              <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Our Vision</h2>
+              <p className="text-gray-700 dark:text-gray-300">
+                We envision a future where blockchain technology seamlessly integrates with everyday life. By crafting innovative solutions, we aim to empower users and set new standards for how digital assets are utilized, ensuring accessibility and advancement.
+              </p>
+            </div>
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-            <FaCogs className="text-5xl mb-4" style={{ color: '#D0BFB4' }} />
-            <h2 className="text-xl font-semibold mb-3">Our Technology</h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              Discover the advanced technologies and solutions we employ to drive innovation and deliver exceptional value to our users on the Solana blockchain.
-            </p>
-          </div>
-        </div>
+        </section>
       </main>
     </>
   );

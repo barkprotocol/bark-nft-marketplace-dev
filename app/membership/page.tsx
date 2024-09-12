@@ -27,15 +27,18 @@ const Membership: FC = () => {
             />
           </div>
           <div className="relative flex flex-col items-center justify-center w-full h-full text-center p-6">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">Join Our Membership</h1>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4"
+                style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)' }}>
+              Join Our Membership
+            </h1>
             <p className="text-base sm:text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
               Unlock exclusive benefits and become an integral part of the BARK Protocol community. Explore our membership tiers and discover what we have to offer.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-6">
-              <Link href="/upgrade" className="py-3 px-6 bg-black text-white rounded-lg shadow-lg hover:bg-gray-800 transition-all duration-300 transform hover:scale-105">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="/upgrade" className="py-2 px-4 bg-black text-white rounded-sm shadow-lg hover:bg-gray-900 transition-all duration-300 transform hover:scale-105">
                 Upgrade
               </Link>
-              <Link href="/sign-up" className="py-3 px-6 bg-gray-700 text-white rounded-lg shadow-lg hover:bg-gray-600 transition-all duration-300 transform hover:scale-105">
+              <Link href="/sign-up" className="py-2 px-4 bg-gray-300 text-black rounded-sm shadow-lg hover:bg-gray-400 transition-all duration-300 transform hover:scale-105">
                 Sign Up
               </Link>
             </div>
@@ -47,28 +50,28 @@ const Membership: FC = () => {
           <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 dark:text-white text-center mb-12">Membership Features</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-              <FaLock className="text-5xl mb-4" style={{ color: '#D0BFB4' }} />
+              <FaLock className="text-4xl mb-4" style={{ color: '#D0BFB4' }} />
               <h3 className="text-lg sm:text-xl font-semibold mb-3">Exclusive Access</h3>
               <p className="text-gray-700 dark:text-gray-300">
                 Gain access to exclusive content, early announcements, and special events only available to our members.
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-              <FaStar className="text-5xl mb-4" style={{ color: '#D0BFB4' }} />
+              <FaStar className="text-4xl mb-4" style={{ color: '#D0BFB4' }} />
               <h3 className="text-lg sm:text-xl font-semibold mb-3">Premium Features</h3>
               <p className="text-gray-700 dark:text-gray-300">
                 Enjoy premium features and tools that enhance your experience with BARK Protocol, including advanced analytics and management options.
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-              <FaGift className="text-5xl mb-4" style={{ color: '#D0BFB4' }} />
+              <FaGift className="text-4xl mb-4" style={{ color: '#D0BFB4' }} />
               <h3 className="text-lg sm:text-xl font-semibold mb-3">Special Rewards</h3>
               <p className="text-gray-700 dark:text-gray-300">
                 Receive exclusive rewards and benefits, including discounts, giveaways, and early access to new features.
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center text-center transition-transform transform hover:scale-105">
-              <FaCheckCircle className="text-5xl mb-4" style={{ color: '#D0BFB4' }} />
+              <FaCheckCircle className="text-4xl mb-4" style={{ color: '#D0BFB4' }} />
               <h3 className="text-lg sm:text-xl font-semibold mb-3">Community Involvement</h3>
               <p className="text-gray-700 dark:text-gray-300">
                 Become an integral part of our community. Participate in discussions, contribute to development, and shape the future of BARK Protocol.
