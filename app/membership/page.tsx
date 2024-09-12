@@ -35,8 +35,8 @@ const Membership: FC = () => {
               Unlock exclusive benefits and become an integral part of the BARK Protocol community. Explore our membership tiers and discover what we have to offer.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link href="/upgrade" className="py-2 px-4 bg-black text-white rounded-sm shadow-lg hover:bg-gray-900 transition-all duration-300 transform hover:scale-105">
-                Upgrade
+              <Link href="/levels" className="py-2 px-4 bg-black text-white rounded-sm shadow-lg hover:bg-gray-900 transition-all duration-300 transform hover:scale-105">
+                Members Clubs
               </Link>
               <Link href="/sign-up" className="py-2 px-4 bg-gray-300 text-black rounded-sm shadow-lg hover:bg-gray-400 transition-all duration-300 transform hover:scale-105">
                 Sign Up

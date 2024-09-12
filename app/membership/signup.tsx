@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 
 // Define available membership levels
-const MEMBERSHIP_LEVELS = ['underdogs', 'peaky-barkers', 'sparky-bros'];
+const MEMBERSHIP_LEVELS = ['underdogs', 'the-peaky-barkers', 'sparky-bros'. 'the-iron-clan'];
 
 const Signup = () => {
   const router = useRouter();
