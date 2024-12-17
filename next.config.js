@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      domains: ['ucarecdn.com', 'marketplace.barkprotocol.net'],
+      domains: ['ucarecdn.com', 'hub.barkprotocol.net'],
     },
   };
   
